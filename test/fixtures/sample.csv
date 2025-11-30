@@ -1,0 +1,4 @@
+fl_date,arr_delay,dep_delay,distance,crs_dep_time,op_unique_carrier,origin,dest,cancelled,cancellation_code,carrier_delay,weather_delay,nas_delay,security_delay,late_aircraft_delay
+2024-01-01,10,5,500,1230,AA,JFK,LAX,0,,5,0,0,0,5
+2024-01-02,,20,400,945,DL,LAX,SFO,1,A,0,0,0,0,0
+2024-01-03,20,25,300,2330,UA,SFO,JFK,0,,10,0,5,0,5

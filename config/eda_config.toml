@@ -1,0 +1,16 @@
+[data]
+raw_file = "data/sample/flight_data_2024_sample.csv"
+cleaned_file = "data/sample/flight_data_2024_cleaned_sample_run.csv"
+sample_file = "data/sample/flight_data_2024_sample.csv"
+
+[plots]
+dir = "plots/sample"
+scatter_sample_size = 20000
+route_min_flights = 1
+delay_lower = -60.0
+delay_upper = 180.0
+
+[logging]
+level = "info"
+
+
