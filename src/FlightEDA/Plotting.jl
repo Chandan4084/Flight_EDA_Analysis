@@ -163,12 +163,10 @@ function plot_worst_average_delay_routes(df, cfg, plot_dir)
     bar(top_routes.route, top_routes.mean_delay;
         xlabel="Route", ylabel="Avg arrival delay (min)",
         title="Top $(topn) Worst Routes (min $(cfg.plots.route_min_flights) flights)",
-        legend=false, size=(1600, 650), xrotation=0,
-        xtickfont=font(9), ytickfont=font(10),
-        xguidefont=font(10), yguidefont=font(11),
-        left_margin=20Plots.mm, bottom_margin=14Plots.mm,
+        legend=false, size=(1500, 600), xrotation=0,
+        xtickfont=font(8), ytickfont=font(9),
         yticks=collect(0:50:ceil(Int, maximum(top_routes.mean_delay) + 50)),
-        framestyle=:box, grid=true)
+        grid=true)
     savefig(plot_filename("10_worst_routes", plot_dir))
 end
 

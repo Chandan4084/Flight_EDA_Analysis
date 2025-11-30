@@ -2,7 +2,7 @@
 
 julia_version = "1.12.2"
 manifest_format = "2.0"
-project_hash = "ae5edf6ca7d244b5ee03a568eedb63ce65e1e1a7"
+project_hash = "bf2e6d68a99b4c438f142f8c0981682c8a4c29f5"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -78,6 +78,12 @@ version = "1.11.0"
 git-tree-sha1 = "0691e34b3bb8be9307330f88d1a3c3f25466c24d"
 uuid = "d1d4a3ce-64b1-5f1a-9ba4-7e7e69966f35"
 version = "0.1.9"
+
+[[deps.Blink]]
+deps = ["Base64", "Distributed", "HTTP", "JSExpr", "JSON", "Lazy", "Logging", "MacroTools", "Mustache", "Mux", "Pkg", "Reexport", "Sockets", "WebIO"]
+git-tree-sha1 = "bc93511973d1f949d45b0ea17878e6cb0ad484a1"
+uuid = "ad839575-38b3-5650-b840-f874b8c74a25"
+version = "0.12.9"
 
 [[deps.Bzip2_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
@@ -347,7 +353,7 @@ uuid = "53c48c17-4a7d-5ca2-90c5-79b7896eea93"
 version = "0.8.5"
 
 [[deps.FlightEDA]]
-deps = ["ArgParse", "CSV", "DataFrames", "Dates", "GR", "IJulia", "Interact", "Logging", "Plots", "Random", "Statistics", "StatsPlots", "TOML", "WebIO"]
+deps = ["ArgParse", "Blink", "CSV", "DataFrames", "Dates", "GR", "IJulia", "Interact", "Logging", "Plots", "Random", "Statistics", "StatsPlots", "TOML", "WebIO", "Widgets"]
 path = "."
 uuid = "2f2f1c9e-4a7a-4a80-9c6e-0f3a83376fd2"
 version = "0.1.0"
@@ -448,6 +454,12 @@ deps = ["Artifacts", "Cairo_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll",
 git-tree-sha1 = "f923f9a774fcf3f5cb761bfa43aeadd689714813"
 uuid = "2e76f6c2-a576-52d4-95c1-20adfe4de566"
 version = "8.5.1+0"
+
+[[deps.Hiccup]]
+deps = ["MacroTools", "Test"]
+git-tree-sha1 = "6187bb2d5fcbb2007c39e7ac53308b0d371124bd"
+uuid = "9fb69e20-1954-56bb-a84f-559cc56a8ff7"
+version = "0.2.2"
 
 [[deps.HypergeometricFunctions]]
 deps = ["LinearAlgebra", "OpenLibm_jll", "SpecialFunctions"]
@@ -628,6 +640,12 @@ version = "0.16.10"
     SymEngine = "123dc426-2d89-5057-bbad-38513e3affd8"
     tectonic_jll = "d7dd28d6-a5e6-559c-9131-7eb760cdacc5"
 
+[[deps.Lazy]]
+deps = ["MacroTools"]
+git-tree-sha1 = "1370f8202dac30758f3c345f9909b97f53d87d3f"
+uuid = "50d2b5c4-7a5e-59d5-8109-a42b560f39c0"
+version = "0.15.1"
+
 [[deps.LazyArtifacts]]
 deps = ["Artifacts", "Pkg"]
 uuid = "4af54fe1-eca0-43a8-85a7-787d91b784e3"
@@ -781,6 +799,18 @@ deps = ["Arpack", "Distributions", "LinearAlgebra", "SparseArrays", "Statistics"
 git-tree-sha1 = "816620e3aac93e5b5359e4fdaf23ca4525b00ddf"
 uuid = "6f286f6a-111f-5878-ab1e-185364afe411"
 version = "0.10.3"
+
+[[deps.Mustache]]
+deps = ["Printf", "Tables"]
+git-tree-sha1 = "3cbd5dda543bc59f2e482607ccf84b633724fc32"
+uuid = "ffc61752-8dc7-55ee-8c37-f3e9cdd09e70"
+version = "1.0.21"
+
+[[deps.Mux]]
+deps = ["AssetRegistry", "Base64", "HTTP", "Hiccup", "MbedTLS", "Pkg", "Sockets"]
+git-tree-sha1 = "7295d849103ac4fcbe3b2e439f229c5cc77b9b69"
+uuid = "a975b10e-0019-58db-a62f-e48ff68538c9"
+version = "1.0.2"
 
 [[deps.NaNMath]]
 deps = ["OpenLibm_jll"]

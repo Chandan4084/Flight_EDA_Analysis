@@ -5,7 +5,7 @@ A Julia CLI to load, clean, engineer, and plot 2024 US flight delay data. One co
 ## What it does
 - **Phase 1 (load)**: read raw CSV, validate schema, print shape/head/tail/describe.
 - **Phase 2 (clean + features)**: drop corrupted rows, fill delay/cancellation fields, convert dates, derive `hour_of_day`, `time_of_day`, `is_delayed`, `route`, and write a cleaned CSV.
-- **Phase 3 (plots)**: generate 12 PNGs (delay distribution, airline/airport volumes, cancellations, delay by hour/airline, worst routes, heatmap, facets) into `plots/`.
+- **Phase 3 (plots)**: generate PNGs (delay distribution, airline/airport volumes, cancellations, delay by hour/airline, worst routes, heatmap, facets) into `plots/`.
 - **Smoke**: quick schema/feature check on sample or cleaned data.
 
 ## Prereqs
@@ -34,9 +34,28 @@ julia --project=. bin/flight_eda.jl --phase smoke                               
 julia --project=. bin/flight_eda_menu.jl
 ```
 
+## Install dependencies
+- With `Project.toml`/`Manifest.toml` present, install everything with:
+```bash
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
+```
+- If interactive widgets are used, ensure WebIO’s Jupyter extension is installed (run once):
+```bash
+julia --project=. -e 'using WebIO; WebIO.install_jupyter_nbextension()'
+```
+
+## Notebook
+- Launch Jupyter from the project root (`--project=.`) so paths resolve correctly:
+```bash
+julia --project=. -e 'using IJulia; notebook()'
+```
+- Open `notebooks/flight_eda_notebook.ipynb`.
+- The notebook resolves data paths relative to the project root and includes a dropdown widget; if widgets don’t render, rerun the WebIO install command above.
+
 ## Config files
 - `config/eda_config.toml` — main paths, plot bounds, sample size, log level.
 - `config/eda_config_sample.toml` — uses the sample CSV for fast runs.
+- Plot controls: `route_min_flights` (filter low-volume routes) and `route_top_n` (how many worst routes to show).
 
 ## Outputs
 - Cleaned CSV: `data/flight_data_2024_cleaned.csv` (configurable).
