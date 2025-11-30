@@ -1,25 +1,31 @@
+# This is the default path to the configuration file.
 const DEFAULT_CONFIG_PATH = joinpath(@__DIR__, "..", "..", "config", "eda_config.toml")
 
+# This structure holds the configuration settings related to data files.
 struct DataConfig
-    raw_file::String
-    cleaned_file::String
-    sample_file::String
+    raw_file::String # Path to the raw data file
+    cleaned_file::String # Path to the cleaned data file
+    sample_file::String # Path to the sample data file
 end
 
+# This structure holds the configuration settings for generating plots.
 struct PlotConfig
-    dir::String
-    scatter_sample_size::Int
-    route_min_flights::Int
-    delay_lower::Float64
-    delay_upper::Float64
+    dir::String # Directory to save the plots
+    scatter_sample_size::Int # Number of samples to use for scatter plots
+    route_min_flights::Int # Minimum number of flights for a route to be included in plots
+    delay_lower::Float64 # Lower bound for delay plots
+    delay_upper::Float64 # Upper bound for delay plots
 end
 
+# This is the main configuration structure.
+# It holds all the other configuration structures.
 struct Config
-    data::DataConfig
-    plots::PlotConfig
-    log_level::Logging.LogLevel
+    data::DataConfig # Data-related configuration
+    plots::PlotConfig # Plot-related configuration
+    log_level::Logging.LogLevel # Logging level for the application
 end
 
+# This is a list of the columns that are required to be in the dataset.
 const REQUIRED_COLUMNS = [
     :fl_date,
     :arr_delay,
@@ -38,6 +44,8 @@ const REQUIRED_COLUMNS = [
     :late_aircraft_delay,
 ]
 
+# This function converts a string representation of a log level
+# to a valid LogLevel object.
 log_level_from_string(level::AbstractString) = begin
     lower = lowercase(level)
     if lower in ["debug"]
@@ -53,6 +61,8 @@ log_level_from_string(level::AbstractString) = begin
     end
 end
 
+# This function loads the configuration from a TOML file.
+# If no path is provided, it uses the default path.
 function load_config(path::String=DEFAULT_CONFIG_PATH)
     isfile(path) || error("Config file not found: $path")
     cfg = TOML.parsefile(path)
