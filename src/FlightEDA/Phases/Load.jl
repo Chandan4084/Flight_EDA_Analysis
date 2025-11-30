@@ -6,6 +6,7 @@ Read the configured raw CSV, enforce schema/date parsing, and return a DataFrame
 function load_raw_dataset(cfg::Config)
     path = cfg.data.raw_file
     isfile(path) || error("Raw data not found at $path")
+    @info "Loading raw dataset" path
     @time df = CSV.read(path, DataFrame)
     validate_schema(df)
     ensure_date_column!(df)

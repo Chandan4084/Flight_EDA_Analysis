@@ -23,7 +23,7 @@ function run_phase(phase::Symbol, cfg::Config)
     elseif phase === :all
         # Run all phases in sequence.
         df1 = run_load_phase(cfg)
-        df2 = run_clean_phase(cfg)
+        df2 = run_clean_phase(cfg; df_raw=copy(df1))
         # Pass the cleaned dataframe directly to the plotting phase.
         run_phase3(cfg, df2)
         return df1, df2 # Return the dataframes from phase 1 and 2

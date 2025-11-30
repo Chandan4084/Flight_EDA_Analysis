@@ -5,7 +5,11 @@ Phase 2: load raw data, drop unusable rows, fill delay/cancellation fields,
 recompute hour features, and write the cleaned CSV.
 """
 function clean_and_engineer_data(cfg::Config)
-    df = load_raw_dataset(cfg)
+    clean_and_engineer_data(cfg; df_raw=nothing)
+end
+
+function clean_and_engineer_data(cfg::Config; df_raw::Union{Nothing,DataFrame}=nothing)
+    df = df_raw === nothing ? load_raw_dataset(cfg) : df_raw
 
     valid_delay(x) = !ismissing(x) && !(x isa AbstractFloat && isnan(x))
 
@@ -32,9 +36,28 @@ function clean_and_engineer_data(cfg::Config)
         df.hour_of_day = get_hour.(coalesce.(df.crs_dep_time, 0))
     end
 
+    # Persist cancelled/diverted flights separately so plots can use them.
+    out_path = cfg.data.cleaned_file
+    cancellation_out_path = replace(out_path, r"\.csv$" => "_cancellations.csv")
+    df_cancel = filter(row -> coalesce(row.cancelled, 0) == 1 || coalesce(row.diverted, 0) == 1, df)
+    if !isempty(df_cancel)
+        mkpath(dirname(cancellation_out_path))
+        @info "Writing cancellations/diversions dataset" cancellation_out_path
+        @time CSV.write(cancellation_out_path, df_cancel)
+    end
+
+    # Drop cancelled/diverted flights and rows missing core timing fields for clean analysis
+    rows_before = nrow(df)
+    df = filter(row -> coalesce(row.cancelled, 0) == 0 && coalesce(row.diverted, 0) == 0, df)
+    @info "Dropped cancelled/diverted flights" removed = rows_before - nrow(df)
+
+    rows_before = nrow(df)
+    required = [:dep_time, :arr_time, :dep_delay, :arr_delay, :distance]
+    df = dropmissing(df, required)
+    @info "Dropped rows missing core timing fields" removed = rows_before - nrow(df)
+
     enrich_features!(df)
 
-    out_path = cfg.data.cleaned_file
     mkpath(dirname(out_path))
     @info "Writing cleaned data" out_path
     @time CSV.write(out_path, df)
@@ -48,8 +71,8 @@ clean_and_engineer(cfg::Config) = clean_and_engineer_data(cfg) # backward compat
 
 Execute Phase 2 cleaning/feature engineering and report missing counts.
 """
-function run_clean_phase(cfg::Config)
-    df = clean_and_engineer_data(cfg)
+function run_clean_phase(cfg::Config; df_raw::Union{Nothing,DataFrame}=nothing)
+    df = clean_and_engineer_data(cfg; df_raw=df_raw)
     println("\n=== AFTER CLEANING (missing counts) ===")
     println(first(describe(df, :nmissing), min(20, ncol(df))))
     @info "Phase 2 complete"

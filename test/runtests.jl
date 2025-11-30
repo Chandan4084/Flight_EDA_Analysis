@@ -1,5 +1,7 @@
 # Import the Test package to create and run tests.
 using Test
+using DataFrames
+using Logging
 # Import the FlightEDA module, which contains the code to be tested.
 using FlightEDA
 
@@ -63,10 +65,13 @@ end
 @testset "Cleaning and features" begin
     # Define the path to a sample CSV file used as a test fixture.
     fixture = joinpath(@__DIR__, "fixtures", "sample.csv")
+    temp_dir = mktempdir()
+    clean_path = joinpath(temp_dir, "sample_clean.csv")
+    plot_dir = joinpath(temp_dir, "plots")
     # Create a configuration object for testing, pointing to test-specific paths.
     cfg = FlightEDA.Config(
-        FlightEDA.DataConfig(fixture, joinpath(@__DIR__, "fixtures", "sample_clean.csv"), fixture),
-        FlightEDA.PlotConfig(joinpath(@__DIR__, "fixtures", "plots"), 1000, 1, -60.0, 180.0),
+        FlightEDA.DataConfig(fixture, clean_path, fixture),
+        FlightEDA.PlotConfig(plot_dir, 1000, 1, -60.0, 180.0),
         Logging.Info,
     )
     # Run the data cleaning and feature engineering function.
@@ -91,9 +96,10 @@ end
     fixture = joinpath(@__DIR__, "fixtures", "sample.csv")
     # Create a temporary directory for plot output to avoid cluttering the project.
     plot_dir = mktempdir()
+    clean_path = joinpath(plot_dir, "sample_clean.csv")
     # Create a configuration object for testing, pointing to the temporary plot directory.
     cfg = FlightEDA.Config(
-        FlightEDA.DataConfig(fixture, joinpath(@__DIR__, "fixtures", "sample_clean.csv"), fixture),
+        FlightEDA.DataConfig(fixture, clean_path, fixture),
         FlightEDA.PlotConfig(plot_dir, 1000, 1, -60.0, 180.0),
         Logging.Info,
     )

@@ -13,6 +13,7 @@ struct PlotConfig
     dir::String # Directory to save the plots
     scatter_sample_size::Int # Number of samples to use for scatter plots
     route_min_flights::Int # Minimum number of flights for a route to be included in plots
+    route_top_n::Int # Number of worst routes to display
     delay_lower::Float64 # Lower bound for delay plots
     delay_upper::Float64 # Upper bound for delay plots
 end
@@ -81,6 +82,7 @@ function load_config(path::String=DEFAULT_CONFIG_PATH)
         get(plot_cfg, "dir", "plots"),
         get(plot_cfg, "scatter_sample_size", 20_000),
         get(plot_cfg, "route_min_flights", 100),
+        get(plot_cfg, "route_top_n", 10),
         Float64(get(plot_cfg, "delay_lower", -60.0)),
         Float64(get(plot_cfg, "delay_upper", 180.0)),
     )

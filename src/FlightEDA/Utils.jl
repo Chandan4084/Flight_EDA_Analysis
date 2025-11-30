@@ -128,6 +128,6 @@ function describe_df(df::DataFrame)
     # Print the last 6 rows of the data.
     println(last(df, 6))
     println("\n=== DESCRIBE() SUMMARY ===")
-    # Print a statistical summary of each column (mean, min, max, etc.).
-    println(describe(df))
+    # Print a statistical summary without mean/median for brevity.
+    println(describe(df, :min, :q25, :q75, :max, :nmissing, :eltype))
 end

@@ -28,7 +28,7 @@ function ensure_instantiated()
     # If Manifest.toml doesn't exist, it means dependencies are not installed.
     if !isfile(manifest_path)
         println("🔧 Project not instantiated. Run:")
-        println("  JULIA_DEPOT_PATH=./.julia_depot ./julia-1.10.5/bin/julia --project=. -e 'using Pkg; Pkg.instantiate()'")
+        println("  julia --project=. -e 'using Pkg; Pkg.instantiate()'")
         # Exit the script with an error code.
         exit(1)
     end

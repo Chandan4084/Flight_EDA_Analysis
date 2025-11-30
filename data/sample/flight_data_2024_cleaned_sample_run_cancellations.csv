@@ -1,0 +1,123 @@
+year,month,day_of_month,day_of_week,fl_date,op_unique_carrier,op_carrier_fl_num,origin,origin_city_name,origin_state_nm,dest,dest_city_name,dest_state_nm,crs_dep_time,dep_time,dep_delay,taxi_out,wheels_off,wheels_on,taxi_in,crs_arr_time,arr_time,arr_delay,cancelled,cancellation_code,diverted,crs_elapsed_time,actual_elapsed_time,air_time,distance,carrier_delay,weather_delay,nas_delay,security_delay,late_aircraft_delay,hour_of_day
+2024,1,16,2,2024-01-16,AA,2100.0,DFW,"Dallas/Fort Worth, TX",Texas,MCI,"Kansas City, MO",Missouri,1538,,,,,,,1710,,,1,B,0,92.0,,,460.0,0,0,0,0,0,15
+2024,7,20,6,2024-07-20,9E,4806.0,CHO,"Charlottesville, VA",Virginia,ATL,"Atlanta, GA",Georgia,1820,,,,,,,2005,,,1,A,0,105.0,,,457.0,0,0,0,0,0,18
+2024,1,12,5,2024-01-12,AS,292.0,SFO,"San Francisco, CA",California,EWR,"Newark, NJ",New Jersey,805,,,,,,,1640,,,1,A,0,335.0,,,2565.0,0,0,0,0,0,8
+2024,2,1,4,2024-02-01,WN,1981.0,DAL,"Dallas, TX",Texas,LAS,"Las Vegas, NV",Nevada,1750,,,,,,,1850,,,1,C,0,180.0,,,1067.0,0,0,0,0,0,17
+2024,5,28,2,2024-05-28,AA,2745.0,DFW,"Dallas/Fort Worth, TX",Texas,DCA,"Washington, DC",Virginia,1505,,,,,,,1859,,,1,B,0,174.0,,,1192.0,0,0,0,0,0,15
+2024,1,12,5,2024-01-12,WN,1507.0,MDW,"Chicago, IL",Illinois,MCO,"Orlando, FL",Florida,935,,,,,,,1310,,,1,B,0,155.0,,,990.0,0,0,0,0,0,9
+2024,4,10,3,2024-04-10,WN,3212.0,MSY,"New Orleans, LA",Louisiana,DAL,"Dallas, TX",Texas,1505,,,,,,,1635,,,1,B,0,90.0,,,436.0,0,0,0,0,0,15
+2024,4,20,6,2024-04-20,MQ,3465.0,DFW,"Dallas/Fort Worth, TX",Texas,HOU,"Houston, TX",Texas,1841,,,,,,,1954,,,1,C,0,73.0,,,247.0,0,0,0,0,0,18
+2024,7,8,1,2024-07-08,WN,3102.0,HOU,"Houston, TX",Texas,AUS,"Austin, TX",Texas,2240,,,,,,,2330,,,1,B,0,50.0,,,148.0,0,0,0,0,0,22
+2024,7,17,3,2024-07-17,9E,5164.0,RDU,"Raleigh/Durham, NC",North Carolina,LGA,"New York, NY",New York,600,,,,,,,739,,,1,C,0,99.0,,,431.0,0,0,0,0,0,6
+2024,2,27,2,2024-02-27,OO,4713.0,ASE,"Aspen, CO",Colorado,LAX,"Los Angeles, CA",California,1022,,,,,,,1201,,,1,B,0,159.0,,,737.0,0,0,0,0,0,10
+2024,9,27,5,2024-09-27,F9,3293.0,ATL,"Atlanta, GA",Georgia,DEN,"Denver, CO",Colorado,619,,,,,,,738,,,1,B,0,199.0,,,1199.0,0,0,0,0,0,6
+2024,3,9,6,2024-03-09,WN,4212.0,MEM,"Memphis, TN",Tennessee,TPA,"Tampa, FL",Florida,1110,,,,,,,1355,,,1,B,0,105.0,,,655.0,0,0,0,0,0,11
+2024,12,4,3,2024-12-04,OO,3832.0,GEG,"Spokane, WA",Washington,SEA,"Seattle, WA",Washington,1905,,,,,,,2038,,,1,B,0,93.0,,,224.0,0,0,0,0,0,19
+2024,4,3,3,2024-04-03,YX,4642.0,JFK,"New York, NY",New York,RDU,"Raleigh/Durham, NC",North Carolina,1729,,,,,,,1927,,,1,B,0,118.0,,,427.0,0,0,0,0,0,17
+2024,6,5,3,2024-06-05,YX,3573.0,EWR,"Newark, NJ",New Jersey,GSO,"Greensboro/High Point, NC",North Carolina,2100,,,,,,,2257,,,1,C,0,117.0,,,445.0,0,0,0,0,0,21
+2024,10,10,4,2024-10-10,DL,2531.0,TPA,"Tampa, FL",Florida,LGA,"New York, NY",New York,1050,,,,,,,1327,,,1,B,0,157.0,,,1010.0,0,0,0,0,0,10
+2024,7,25,4,2024-07-25,NK,3924.0,IAH,"Houston, TX",Texas,DTW,"Detroit, MI",Michigan,1759,,,,,,,2146,,,1,B,0,167.0,,,1075.0,0,0,0,0,0,17
+2024,9,26,4,2024-09-26,NK,1159.0,DTW,"Detroit, MI",Michigan,ATL,"Atlanta, GA",Georgia,1926,,,,,,,2130,,,1,B,0,124.0,,,594.0,0,0,0,0,0,19
+2024,6,2,7,2024-06-02,AA,319.0,LEX,"Lexington, KY",Kentucky,DFW,"Dallas/Fort Worth, TX",Texas,551,,,,,,,714,,,1,B,0,143.0,,,785.0,0,0,0,0,0,5
+2024,3,22,5,2024-03-22,G4,2749.0,PIT,"Pittsburgh, PA",Pennsylvania,PIE,"St. Petersburg, FL",Florida,1619,,,,,,,1848,,,1,A,0,149.0,,,878.0,0,0,0,0,0,16
+2024,7,10,3,2024-07-10,AA,1916.0,PIT,"Pittsburgh, PA",Pennsylvania,LGA,"New York, NY",New York,1600,,,,,,,1721,,,1,B,0,81.0,,,335.0,0,0,0,0,0,16
+2024,1,22,1,2024-01-22,OH,5451.0,CLT,"Charlotte, NC",North Carolina,PIA,"Peoria, IL",Illinois,2049,,,,,,,2202,,,1,B,0,133.0,,,607.0,0,0,0,0,0,20
+2024,1,12,5,2024-01-12,AA,1296.0,CID,"Cedar Rapids/Iowa City, IA",Iowa,PHX,"Phoenix, AZ",Arizona,1429,,,,,,,1654,,,1,B,0,205.0,,,1252.0,0,0,0,0,0,14
+2024,4,1,1,2024-04-01,WN,5454.0,STL,"St. Louis, MO",Missouri,BNA,"Nashville, TN",Tennessee,2135,,,,,,,2245,,,1,A,0,70.0,,,272.0,0,0,0,0,0,21
+2024,8,2,5,2024-08-02,NK,1254.0,SAT,"San Antonio, TX",Texas,EWR,"Newark, NJ",New Jersey,1208,,,,,,,1704,,,1,B,0,236.0,,,1569.0,0,0,0,0,0,12
+2024,11,9,6,2024-11-09,AA,852.0,DEN,"Denver, CO",Colorado,DFW,"Dallas/Fort Worth, TX",Texas,815,,,,,,,1121,,,1,B,0,126.0,,,641.0,0,0,0,0,0,8
+2024,6,13,4,2024-06-13,AA,834.0,PIT,"Pittsburgh, PA",Pennsylvania,MIA,"Miami, FL",Florida,1833,,,,,,,2114,,,1,B,0,161.0,,,1013.0,0,0,0,0,0,18
+2024,7,31,3,2024-07-31,9E,5132.0,GSO,"Greensboro/High Point, NC",North Carolina,LGA,"New York, NY",New York,1455,1546.0,51.0,,,,,1637,,,1,C,0,102.0,,,461.0,0,0,0,0,0,14
+2024,10,9,3,2024-10-09,AA,3139.0,MCO,"Orlando, FL",Florida,ORD,"Chicago, IL",Illinois,1521,,,,,,,1724,,,1,B,0,183.0,,,1005.0,0,0,0,0,0,15
+2024,2,29,4,2024-02-29,OO,3486.0,SLC,"Salt Lake City, UT",Utah,SFO,"San Francisco, CA",California,1716,,,,,,,1834,,,1,C,0,138.0,,,599.0,0,0,0,0,0,17
+2024,7,18,4,2024-07-18,NK,426.0,LAS,"Las Vegas, NV",Nevada,PDX,"Portland, OR",Oregon,823,,,,,,,1040,,,1,A,0,137.0,,,763.0,0,0,0,0,0,8
+2024,4,2,2,2024-04-02,OO,5427.0,ORD,"Chicago, IL",Illinois,MSN,"Madison, WI",Wisconsin,1540,,,,,,,1641,,,1,C,0,61.0,,,108.0,0,0,0,0,0,15
+2024,7,20,6,2024-07-20,UA,774.0,IAH,"Houston, TX",Texas,EWR,"Newark, NJ",New Jersey,1620,,,,,,,2107,,,1,A,0,227.0,,,1400.0,0,0,0,0,0,16
+2024,1,16,2,2024-01-16,WN,471.0,LGA,"New York, NY",New York,MDW,"Chicago, IL",Illinois,1725,,,,,,,1905,,,1,B,0,160.0,,,725.0,0,0,0,0,0,17
+2024,12,29,7,2024-12-29,UA,1741.0,SAT,"San Antonio, TX",Texas,EWR,"Newark, NJ",New Jersey,1210,,,,,,,1655,,,1,B,0,225.0,,,1569.0,0,0,0,0,0,12
+2024,10,8,2,2024-10-08,WN,225.0,BWI,"Baltimore, MD",Maryland,MCO,"Orlando, FL",Florida,1750,,,,,,,2015,,,1,B,0,145.0,,,787.0,0,0,0,0,0,17
+2024,6,3,1,2024-06-03,OH,5111.0,DCA,"Washington, DC",Virginia,GSO,"Greensboro/High Point, NC",North Carolina,2200,,,,,,,2312,,,1,B,0,72.0,,,248.0,0,0,0,0,0,22
+2024,10,10,4,2024-10-10,WN,1204.0,RSW,"Fort Myers, FL",Florida,MDW,"Chicago, IL",Illinois,630,,,,,,,820,,,1,B,0,170.0,,,1105.0,0,0,0,0,0,6
+2024,5,22,3,2024-05-22,AA,2501.0,VPS,"Valparaiso, FL",Florida,DFW,"Dallas/Fort Worth, TX",Texas,1549,,,,,,,1805,,,1,B,0,136.0,,,641.0,0,0,0,0,0,15
+2024,7,18,4,2024-07-18,NK,1111.0,SJU,"San Juan, PR",Puerto Rico,DFW,"Dallas/Fort Worth, TX",Texas,2024,,,,,,,36,,,1,B,0,312.0,,,2165.0,0,0,0,0,0,20
+2024,1,8,1,2024-01-08,AS,320.0,SAN,"San Diego, CA",California,MCO,"Orlando, FL",Florida,1149,1141.0,-8.0,,,,,1929,,,1,A,0,280.0,,,2149.0,0,0,0,0,0,11
+2024,7,20,6,2024-07-20,AA,1406.0,DFW,"Dallas/Fort Worth, TX",Texas,SAT,"San Antonio, TX",Texas,2052,,,,,,,2200,,,1,A,0,68.0,,,247.0,0,0,0,0,0,20
+2024,12,26,4,2024-12-26,AA,2707.0,DFW,"Dallas/Fort Worth, TX",Texas,AUS,"Austin, TX",Texas,2045,,,,,,,2155,,,1,B,0,70.0,,,190.0,0,0,0,0,0,20
+2024,12,2,1,2024-12-02,HA,41.0,SFO,"San Francisco, CA",California,OGG,"Kahului, HI",Hawaii,955,,,,,,,1330,,,1,A,0,335.0,,,2338.0,0,0,0,0,0,9
+2024,2,9,5,2024-02-09,AA,2590.0,SNA,"Santa Ana, CA",California,ORD,"Chicago, IL",Illinois,730,721.0,-9.0,,,,,1341,,,1,A,0,251.0,,,1726.0,0,0,0,0,0,7
+2024,6,12,3,2024-06-12,B6,24.0,MCO,"Orlando, FL",Florida,DCA,"Washington, DC",Virginia,1836,,,,,,,2058,,,1,C,0,142.0,,,759.0,0,0,0,0,0,18
+2024,5,30,4,2024-05-30,AA,2252.0,DFW,"Dallas/Fort Worth, TX",Texas,MCO,"Orlando, FL",Florida,1945,,,,,,,2325,,,1,B,0,160.0,,,985.0,0,0,0,0,0,19
+2024,3,9,6,2024-03-09,NK,938.0,IAH,"Houston, TX",Texas,MIA,"Miami, FL",Florida,1519,,,,,,,1849,,,1,C,0,150.0,,,964.0,0,0,0,0,0,15
+2024,8,4,7,2024-08-04,OH,5662.0,DCA,"Washington, DC",Virginia,ORF,"Norfolk, VA",Virginia,2201,,,,,,,2305,,,1,B,0,64.0,,,142.0,0,0,0,0,0,22
+2024,10,10,4,2024-10-10,WN,4627.0,TPA,"Tampa, FL",Florida,BWI,"Baltimore, MD",Maryland,1930,,,,,,,2145,,,1,B,0,135.0,,,842.0,0,0,0,0,0,19
+2024,6,6,4,2024-06-06,OH,5351.0,ROC,"Rochester, NY",New York,DCA,"Washington, DC",Virginia,534,,,,,,,655,,,1,B,0,81.0,,,296.0,0,0,0,0,0,5
+2024,10,11,5,2024-10-11,F9,1977.0,BOS,"Boston, MA",Massachusetts,MCO,"Orlando, FL",Florida,600,,,,,,,920,,,1,B,0,200.0,,,1121.0,0,0,0,0,0,6
+2024,5,12,7,2024-05-12,OO,3251.0,SBN,"South Bend, IN",Indiana,DFW,"Dallas/Fort Worth, TX",Texas,1603,,,,,,,1740,,,1,B,0,157.0,,,846.0,0,0,0,0,0,16
+2024,8,5,1,2024-08-05,AA,1684.0,MIA,"Miami, FL",Florida,JAX,"Jacksonville, FL",Florida,855,,,,,,,1028,,,1,B,0,93.0,,,335.0,0,0,0,0,0,8
+2024,8,4,7,2024-08-04,OH,5636.0,PHL,"Philadelphia, PA",Pennsylvania,DCA,"Washington, DC",Virginia,554,,,,,,,659,,,1,B,0,65.0,,,119.0,0,0,0,0,0,5
+2024,7,15,1,2024-07-15,AA,1800.0,DTW,"Detroit, MI",Michigan,PHL,"Philadelphia, PA",Pennsylvania,710,,,,,,,846,,,1,A,0,96.0,,,453.0,0,0,0,0,0,7
+2024,9,27,5,2024-09-27,WN,786.0,TPA,"Tampa, FL",Florida,AUS,"Austin, TX",Texas,655,,,,,,,825,,,1,B,0,150.0,,,928.0,0,0,0,0,0,6
+2024,1,7,7,2024-01-07,AS,882.0,OGG,"Kahului, HI",Hawaii,LAX,"Los Angeles, CA",California,1255,,,,,,,2013,,,1,A,0,318.0,,,2486.0,0,0,0,0,0,12
+2024,1,16,2,2024-01-16,OH,5161.0,CLT,"Charlotte, NC",North Carolina,VPS,"Valparaiso, FL",Florida,2025,,,,,,,2122,,,1,B,0,117.0,,,460.0,0,0,0,0,0,20
+2024,12,6,5,2024-12-06,G4,2304.0,EUG,"Eugene, OR",Oregon,AZA,"Phoenix, AZ",Arizona,1849,,,,,,,2221,,,1,B,0,152.0,,,971.0,0,0,0,0,0,18
+2024,1,6,6,2024-01-06,UA,1261.0,SMF,"Sacramento, CA",California,ORD,"Chicago, IL",Illinois,2359,,,,,,,607,,,1,A,0,248.0,,,1781.0,0,0,0,0,0,23
+2024,1,20,6,2024-01-20,OO,5406.0,LAX,"Los Angeles, CA",California,RDM,"Bend/Redmond, OR",Oregon,1615,1615.0,0.0,27.0,1642.0,,,1840,,,1,B,0,145.0,,,726.0,0,0,0,0,0,16
+2024,10,10,4,2024-10-10,OH,5398.0,GNV,"Gainesville, FL",Florida,CLT,"Charlotte, NC",North Carolina,624,,,,,,,800,,,1,B,0,96.0,,,388.0,0,0,0,0,0,6
+2024,8,5,1,2024-08-05,OO,5514.0,MOT,"Minot, ND",North Dakota,DEN,"Denver, CO",Colorado,1520,,,,,,,1624,,,1,A,0,124.0,,,604.0,0,0,0,0,0,15
+2024,3,18,1,2024-03-18,F9,1324.0,DEN,"Denver, CO",Colorado,DFW,"Dallas/Fort Worth, TX",Texas,505,,,,,,,808,,,1,A,0,123.0,,,641.0,0,0,0,0,0,5
+2024,10,12,6,2024-10-12,F9,1674.0,CVG,"Cincinnati, OH",Kentucky,SRQ,"Sarasota/Bradenton, FL",Florida,1747,,,,,,,1956,,,1,B,0,129.0,,,812.0,0,0,0,0,0,17
+2024,10,9,3,2024-10-09,WN,5988.0,SRQ,"Sarasota/Bradenton, FL",Florida,BWI,"Baltimore, MD",Maryland,1205,,,,,,,1425,,,1,B,0,140.0,,,880.0,0,0,0,0,0,12
+2024,2,5,1,2024-02-05,OO,3465.0,SNA,"Santa Ana, CA",California,SFO,"San Francisco, CA",California,1630,,,,,,,1759,,,1,B,0,89.0,,,372.0,0,0,0,0,0,16
+2024,7,22,1,2024-07-22,DL,2401.0,ATL,"Atlanta, GA",Georgia,EWR,"Newark, NJ",New Jersey,1002,,,,,,,1210,,,1,A,0,128.0,,,746.0,0,0,0,0,0,10
+2024,6,25,2,2024-06-25,MQ,3907.0,ORD,"Chicago, IL",Illinois,IND,"Indianapolis, IN",Indiana,1315,,,,,,,1516,,,1,C,0,61.0,,,177.0,0,0,0,0,0,13
+2024,1,14,7,2024-01-14,AA,2402.0,SEA,"Seattle, WA",Washington,DFW,"Dallas/Fort Worth, TX",Texas,2356,,,,,,,548,,,1,B,0,232.0,,,1660.0,0,0,0,0,0,23
+2024,6,12,3,2024-06-12,NK,374.0,EWR,"Newark, NJ",New Jersey,FLL,"Fort Lauderdale, FL",Florida,1640,,,,,,,1948,,,1,C,0,188.0,,,1065.0,0,0,0,0,0,16
+2024,5,16,4,2024-05-16,AA,777.0,LAS,"Las Vegas, NV",Nevada,DFW,"Dallas/Fort Worth, TX",Texas,1435,,,,,,,1925,,,1,B,0,170.0,,,1055.0,0,0,0,0,0,14
+2024,7,19,5,2024-07-19,DL,2653.0,LAX,"Los Angeles, CA",California,LAS,"Las Vegas, NV",Nevada,2240,,,,,,,2354,,,1,A,0,74.0,,,236.0,0,0,0,0,0,22
+2024,1,12,5,2024-01-12,WN,2560.0,MDW,"Chicago, IL",Illinois,BOS,"Boston, MA",Massachusetts,850,,,,,,,1200,,,1,B,0,130.0,,,861.0,0,0,0,0,0,8
+2024,6,10,1,2024-06-10,9E,4925.0,JFK,"New York, NY",New York,JAX,"Jacksonville, FL",Florida,720,,,,,,,953,,,1,A,0,153.0,,,828.0,0,0,0,0,0,7
+2024,1,25,4,2024-01-25,UA,337.0,AUS,"Austin, TX",Texas,EWR,"Newark, NJ",New Jersey,600,,,,,,,1037,,,1,A,0,217.0,,,1504.0,0,0,0,0,0,6
+2024,7,30,2,2024-07-30,UA,1763.0,MCI,"Kansas City, MO",Missouri,SFO,"San Francisco, CA",California,600,,,,,,,746,,,1,C,0,226.0,,,1499.0,0,0,0,0,0,6
+2024,9,26,4,2024-09-26,DL,1281.0,ATL,"Atlanta, GA",Georgia,EYW,"Key West, FL",Florida,950,,,,,,,1142,,,1,B,0,112.0,,,646.0,0,0,0,0,0,9
+2024,1,14,7,2024-01-14,MQ,3466.0,DFW,"Dallas/Fort Worth, TX",Texas,FSM,"Fort Smith, AR",Arkansas,2243,,,,,,,2354,,,1,B,0,71.0,,,227.0,0,0,0,0,0,22
+2024,7,21,7,2024-07-21,DL,665.0,ATL,"Atlanta, GA",Georgia,ONT,"Ontario, CA",California,855,,,,,,,1013,,,1,A,0,258.0,,,1900.0,0,0,0,0,0,8
+2024,7,17,3,2024-07-17,AA,1656.0,PHL,"Philadelphia, PA",Pennsylvania,CLT,"Charlotte, NC",North Carolina,2105,,,,,,,2300,,,1,B,0,115.0,,,449.0,0,0,0,0,0,21
+2024,10,11,5,2024-10-11,DL,1545.0,TPA,"Tampa, FL",Florida,ATL,"Atlanta, GA",Georgia,520,,,,,,,646,,,1,B,0,86.0,,,406.0,0,0,0,0,0,5
+2024,12,4,3,2024-12-04,OO,4634.0,FAR,"Fargo, ND",North Dakota,DEN,"Denver, CO",Colorado,1640,,,,,,,1758,,,1,B,0,138.0,,,627.0,0,0,0,0,0,16
+2024,2,13,2,2024-02-13,YX,3495.0,MKE,"Milwaukee, WI",Wisconsin,EWR,"Newark, NJ",New Jersey,1002,,,,,,,1335,,,1,B,0,153.0,,,725.0,0,0,0,0,0,10
+2024,6,14,5,2024-06-14,YX,3710.0,GRR,"Grand Rapids, MI",Michigan,EWR,"Newark, NJ",New Jersey,1356,,,,,,,1600,,,1,B,0,124.0,,,605.0,0,0,0,0,0,13
+2024,6,19,3,2024-06-19,AS,184.0,ANC,"Anchorage, AK",Alaska,ADK,"Adak Island, AK",Alaska,1130,1130.0,0.0,12.0,1142.0,,,1335,,,1,B,0,185.0,,,1192.0,0,0,0,0,0,11
+2024,6,13,4,2024-06-13,WN,4917.0,MIA,"Miami, FL",Florida,HOU,"Houston, TX",Texas,1210,,,,,,,1355,,,1,B,0,165.0,,,955.0,0,0,0,0,0,12
+2024,7,20,6,2024-07-20,DL,391.0,ATL,"Atlanta, GA",Georgia,RNO,"Reno, NV",Nevada,1933,,,,,,,2108,,,1,A,0,275.0,,,1993.0,0,0,0,0,0,19
+2024,7,8,1,2024-07-08,UA,2606.0,IAH,"Houston, TX",Texas,SEA,"Seattle, WA",Washington,948,,,,,,,1231,,,1,C,0,283.0,,,1874.0,0,0,0,0,0,9
+2024,1,25,4,2024-01-25,WN,915.0,MDW,"Chicago, IL",Illinois,PHX,"Phoenix, AZ",Arizona,1020,,,,,,,1320,,,1,B,0,240.0,,,1444.0,0,0,0,0,0,10
+2024,6,4,2,2024-06-04,AA,2814.0,CLT,"Charlotte, NC",North Carolina,DEN,"Denver, CO",Colorado,1935,,,,,,,2105,,,1,B,0,210.0,,,1337.0,0,0,0,0,0,19
+2024,1,15,1,2024-01-15,UA,2159.0,IAH,"Houston, TX",Texas,DFW,"Dallas/Fort Worth, TX",Texas,1450,,,,,,,1609,,,1,B,0,79.0,,,224.0,0,0,0,0,0,14
+2024,12,11,3,2024-12-11,WN,1433.0,DEN,"Denver, CO",Colorado,LGA,"New York, NY",New York,1015,,,,,,,1555,,,1,B,0,220.0,,,1620.0,0,0,0,0,0,10
+2024,7,21,7,2024-07-21,NK,2377.0,EWR,"Newark, NJ",New Jersey,MIA,"Miami, FL",Florida,2200,,,,,,,57,,,1,A,0,177.0,,,1085.0,0,0,0,0,0,22
+2024,7,8,1,2024-07-08,UA,1798.0,LGA,"New York, NY",New York,IAH,"Houston, TX",Texas,1000,,,,,,,1247,,,1,C,0,227.0,,,1416.0,0,0,0,0,0,10
+2024,12,30,1,2024-12-30,UA,447.0,ATL,"Atlanta, GA",Georgia,EWR,"Newark, NJ",New Jersey,620,,,,,,,834,,,1,A,0,134.0,,,746.0,0,0,0,0,0,6
+2024,7,19,5,2024-07-19,F9,3362.0,SFO,"San Francisco, CA",California,PDX,"Portland, OR",Oregon,1251,,,,,,,1432,,,1,B,0,101.0,,,550.0,0,0,0,0,0,12
+2024,5,28,2,2024-05-28,WN,804.0,SLC,"Salt Lake City, UT",Utah,DAL,"Dallas, TX",Texas,1545,,,,,,,1920,,,1,B,0,155.0,,,999.0,0,0,0,0,0,15
+2024,4,20,6,2024-04-20,MQ,3522.0,GCK,"Garden City, KS",Kansas,DFW,"Dallas/Fort Worth, TX",Texas,535,600.0,25.0,,,,,702,,,1,C,0,87.0,,,404.0,0,0,0,0,0,5
+2024,7,22,1,2024-07-22,YX,5791.0,LGA,"New York, NY",New York,JAX,"Jacksonville, FL",Florida,1925,,,,,,,2217,,,1,C,0,172.0,,,833.0,0,0,0,0,0,19
+2024,10,11,5,2024-10-11,WN,833.0,TPA,"Tampa, FL",Florida,ATL,"Atlanta, GA",Georgia,605,,,,,,,735,,,1,B,0,90.0,,,406.0,0,0,0,0,0,6
+2024,7,8,1,2024-07-08,NK,1475.0,CLT,"Charlotte, NC",North Carolina,IAH,"Houston, TX",Texas,1150,,,,,,,1330,,,1,B,0,160.0,,,912.0,0,0,0,0,0,11
+2024,1,16,2,2024-01-16,9E,5064.0,LGA,"New York, NY",New York,RIC,"Richmond, VA",Virginia,835,,,,,,,1011,,,1,B,0,96.0,,,292.0,0,0,0,0,0,8
+2024,7,19,5,2024-07-19,UA,445.0,DFW,"Dallas/Fort Worth, TX",Texas,DEN,"Denver, CO",Colorado,1145,,,,,,,1254,,,1,A,0,129.0,,,641.0,0,0,0,0,0,11
+2024,8,9,5,2024-08-09,YX,4745.0,LGA,"New York, NY",New York,PHL,"Philadelphia, PA",Pennsylvania,1830,,,,,,,1943,,,1,C,0,73.0,,,96.0,0,0,0,0,0,18
+2024,10,9,3,2024-10-09,OH,5369.0,GNV,"Gainesville, FL",Florida,CLT,"Charlotte, NC",North Carolina,2008,,,,,,,2144,,,1,B,0,96.0,,,388.0,0,0,0,0,0,20
+2024,5,28,2,2024-05-28,WN,2533.0,STL,"St. Louis, MO",Missouri,DAL,"Dallas, TX",Texas,1745,,,,,,,1930,,,1,B,0,105.0,,,546.0,0,0,0,0,0,17
+2024,9,26,4,2024-09-26,OH,5198.0,CLT,"Charlotte, NC",North Carolina,TLH,"Tallahassee, FL",Florida,1121,,,,,,,1316,,,1,B,0,115.0,,,386.0,0,0,0,0,0,11
+2024,8,10,6,2024-08-10,F9,3254.0,PDX,"Portland, OR",Oregon,DFW,"Dallas/Fort Worth, TX",Texas,1724,,,,,,,2307,,,1,A,0,223.0,,,1616.0,0,0,0,0,0,17
+2024,5,29,3,2024-05-29,AA,2679.0,SRQ,"Sarasota/Bradenton, FL",Florida,DFW,"Dallas/Fort Worth, TX",Texas,1658,,,,,,,1846,,,1,B,0,168.0,,,945.0,0,0,0,0,0,16
+2024,1,19,5,2024-01-19,AS,1091.0,ONT,"Ontario, CA",California,SEA,"Seattle, WA",Washington,600,,,,,,,854,,,1,A,0,174.0,,,956.0,0,0,0,0,0,6
+2024,7,19,5,2024-07-19,DL,2566.0,EWR,"Newark, NJ",New Jersey,DTW,"Detroit, MI",Michigan,938,,,,,,,1130,,,1,A,0,112.0,,,488.0,0,0,0,0,0,9
+2024,7,18,4,2024-07-18,NK,340.0,DTW,"Detroit, MI",Michigan,MSP,"Minneapolis, MN",Minnesota,1351,,,,,,,1436,,,1,B,0,105.0,,,528.0,0,0,0,0,0,13
+2024,6,30,7,2024-06-30,F9,3055.0,ISP,"Islip, NY",New York,MCO,"Orlando, FL",Florida,2223,,,,,,,121,,,1,A,0,178.0,,,971.0,0,0,0,0,0,22
+2024,6,1,6,2024-06-01,AA,802.0,RDU,"Raleigh/Durham, NC",North Carolina,DFW,"Dallas/Fort Worth, TX",Texas,657,,,,,,,903,,,1,B,0,186.0,,,1061.0,0,0,0,0,0,6
+2024,10,9,3,2024-10-09,WN,2475.0,MHT,"Manchester, NH",New Hampshire,MCO,"Orlando, FL",Florida,1455,,,,,,,1810,,,1,B,0,195.0,,,1142.0,0,0,0,0,0,14
+2024,7,22,1,2024-07-22,DL,2717.0,SAT,"San Antonio, TX",Texas,MSP,"Minneapolis, MN",Minnesota,633,,,,,,,930,,,1,A,0,177.0,,,1097.0,0,0,0,0,0,6
+2024,1,7,7,2024-01-07,UA,2465.0,EWR,"Newark, NJ",New Jersey,MIA,"Miami, FL",Florida,715,,,,,,,1023,,,1,A,0,188.0,,,1085.0,0,0,0,0,0,7
+2024,7,20,6,2024-07-20,9E,5220.0,MSP,"Minneapolis, MN",Minnesota,OMA,"Omaha, NE",Nebraska,1515,,,,,,,1634,,,1,A,0,79.0,,,282.0,0,0,0,0,0,15
+2024,5,16,4,2024-05-16,AA,522.0,DFW,"Dallas/Fort Worth, TX",Texas,CLT,"Charlotte, NC",North Carolina,1837,,,,,,,2210,,,1,B,0,153.0,,,936.0,0,0,0,0,0,18

@@ -42,9 +42,32 @@ function plot_top_busiest_airports(df, plot_dir)
 end
 
 # Creates and saves a bar chart of flight cancellation reasons.
-function plot_cancellation_reason_counts(df, plot_dir)
-    # Filter for flights that were actually cancelled.
+function plot_cancellation_reason_counts(df, cfg::Config, plot_dir)
+    # Start with cancellations present in the provided DataFrame.
     dfc = filter(:cancellation_code => c -> !ismissing(c) && c != "Not_Cancelled", df)
+
+    # Prefer the dedicated cancellations file if present (written during cleaning).
+    cancellation_path = replace(cfg.data.cleaned_file, r"\.csv$" => "_cancellations.csv")
+    if isfile(cancellation_path)
+        @info "Loading cancellations dataset for cancellation plot" cancellation_path
+        dfc = CSV.read(cancellation_path, DataFrame)
+    end
+
+    # If still empty, fall back to raw.
+    if isempty(dfc)
+        raw_path = cfg.data.raw_file
+        if isfile(raw_path)
+            @info "Reloading raw dataset for cancellation plot" raw_path
+            df_raw = CSV.read(raw_path, DataFrame)
+            dfc = filter(:cancellation_code => c -> !ismissing(c) && c != "Not_Cancelled", df_raw)
+        end
+    end
+
+    if isempty(dfc)
+        @warn "No cancellations found; skipping cancellation plot"
+        return
+    end
+
     # Group by cancellation reason and count the occurrences.
     c3 = combine(groupby(dfc, :cancellation_code), nrow => :count)
     # Create a bar chart of the reasons.
@@ -109,53 +132,43 @@ function plot_departure_vs_arrival_scatter(df, lower, upper, sample_size, plot_d
     savefig(plot_filename("8_scatter_dep_arr", plot_dir))
 end
 
-# Creates a stacked bar chart showing the composition of delay reasons for the top 10 airlines.
-function plot_average_delay_reason_stack(df, ccount, plot_dir)
-    # Get the top 10 airlines by flight count.
-    top10 = first(ccount.op_unique_carrier, min(10, length(ccount.op_unique_carrier)))
-    # Filter the DataFrame to only include these top 10 airlines.
-    df10 = filter(:op_unique_carrier => c -> !ismissing(c) && c in top10, df)
-    # Group by airline and calculate the mean for each delay type.
-    c9 = combine(groupby(df10, :op_unique_carrier),
-        :carrier_delay => (mean ∘ skipmissing) => :Carrier,
-        :weather_delay => (mean ∘ skipmissing) => :Weather,
-        :nas_delay => (mean ∘ skipmissing) => :NAS,
-        :security_delay => (mean ∘ skipmissing) => :Security,
-        :late_aircraft_delay => (mean ∘ skipmissing) => :LateAircraft,
-    )
-    # Prepare data for the stacked bar chart.
-    labels9 = c9.op_unique_carrier
-    values = Matrix(select(c9, Not(:op_unique_carrier)))
-    # Create the stacked bar chart.
-    bar(labels9, values;
-        label=names(c9)[2:end], xlabel="", ylabel="Avg minutes",
-        title="Delay Reason Composition (Top 10 Airlines)", stacked=true,
-        size=(800, 500), xrotation=45)
-    savefig(plot_filename("9_stacked_delay_reasons", plot_dir))
-end
-
-# Creates a bar chart of the top 15 routes with the worst average delays.
+# Creates a bar chart of the worst routes with the highest average delays.
 function plot_worst_average_delay_routes(df, cfg, plot_dir)
-    # Filter out rows with invalid arrival delays.
-    df_routes = filter(:arr_delay => d -> !ismissing(d) && !(d isa AbstractFloat && isnan(d)), df)
-    # Group by route (origin and destination) and calculate flight count and mean delay.
-    c10 = combine(groupby(df_routes, [:origin, :dest]),
-        nrow => :flight_count,
-        :arr_delay => (mean ∘ skipmissing) => :mean_delay,
-    )
-    # Filter out routes with too few flights to be statistically significant.
-    c10 = filter(:flight_count => c -> c >= cfg.plots.route_min_flights, c10)
-    # Sort by mean delay in descending order to find the worst routes.
-    sort!(c10, :mean_delay, rev=true)
-    # Take the top 15 worst routes.
-    top15 = first(c10, min(15, nrow(c10)))
+    # Chain data operations to find the worst routes.
+    top_routes = df |>
+        # Filter out rows with invalid arrival delays (NaNs).
+        df -> filter(:arr_delay => d -> !(d isa AbstractFloat && isnan(d)), df) |>
+        # Group by route and calculate flight count and mean delay.
+        df -> groupby(df, [:origin, :dest]) |>
+        df -> combine(df,
+            nrow => :flight_count,
+            :arr_delay => (mean ∘ skipmissing) => :mean_delay
+        ) |>
+        # Filter out routes with too few flights to be statistically significant.
+        df -> filter(:flight_count => c -> c >= cfg.plots.route_min_flights, df) |>
+        # Sort by mean delay to find the worst routes.
+        df -> sort(df, :mean_delay, rev=true) |>
+        # Take the top N worst routes.
+        df -> first(df, min(cfg.plots.route_top_n, nrow(df)))
+
+    if isempty(top_routes)
+        @warn "No routes met the criteria for 'worst routes' plot; skipping."
+        return
+    end
+
     # Create a 'route' string for labeling.
-    top15.route = string.(top15.origin, " → ", top15.dest)
-    # Create the bar chart. Note the vertical orientation by swapping size dimensions.
-    bar(top15.route, top15.mean_delay; xlabel="", ylabel="Avg arrival delay (min)",
-        title="Top 15 Worst Routes (min $(cfg.plots.route_min_flights) flights)",
-        legend=false, size=(200, 700), xrotation=60,
-        yticks=0:100:ceil(Int, maximum(top15.mean_delay) + 100))
+    top_routes.route = string.(top_routes.origin, " → ", top_routes.dest)
+    topn = nrow(top_routes)
+    # Create a vertical bar chart with route labels on X and delays on Y.
+    bar(top_routes.route, top_routes.mean_delay;
+        xlabel="Route", ylabel="Avg arrival delay (min)",
+        title="Top $(topn) Worst Routes (min $(cfg.plots.route_min_flights) flights)",
+        legend=false, size=(1600, 650), xrotation=0,
+        xtickfont=font(9), ytickfont=font(10),
+        xguidefont=font(10), yguidefont=font(11),
+        left_margin=20Plots.mm, bottom_margin=14Plots.mm,
+        yticks=collect(0:50:ceil(Int, maximum(top_routes.mean_delay) + 50)),
+        framestyle=:box, grid=true)
     savefig(plot_filename("10_worst_routes", plot_dir))
 end
 
@@ -244,7 +257,7 @@ function generate_plots(cfg::Config, df_in::DataFrame=nothing)
     plot_arrival_delay_histogram(df, lower, upper, plot_dir)
     plot_flight_counts_by_airline(df, plot_dir)
     plot_top_busiest_airports(df, plot_dir)
-    plot_cancellation_reason_counts(df, plot_dir)
+    plot_cancellation_reason_counts(df, cfg, plot_dir)
     plot_average_delay_by_hour(df, plot_dir)
     plot_average_delay_by_airline(df, plot_dir)
     plot_arrival_delay_boxplot_by_airline(df, lower, upper, plot_dir)
@@ -254,7 +267,6 @@ function generate_plots(cfg::Config, df_in::DataFrame=nothing)
     ccount = combine(groupby(df, :op_unique_carrier), nrow => :flight_count)
     sort!(ccount, :flight_count, rev=true)
 
-    plot_average_delay_reason_stack(df, ccount, plot_dir)
     plot_worst_average_delay_routes(df, cfg, plot_dir)
     plot_delay_rate_heatmap(df, plot_dir)
     plot_delay_by_hour_facets(df, ccount, plot_dir)
