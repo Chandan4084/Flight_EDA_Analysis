@@ -19,6 +19,7 @@ StatsPlots = "f3b207a7-027a-5e70-b257-86293d7955fd"
 TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
 WebIO = "0f1e0344-ec1d-5b48-a673-e5cf874b6c29"
 Widgets = "cc8bc4a8-27d6-5769-a93b-9d913e69aa62"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [compat]
 Blink = "0.12.9"
@@ -26,3 +27,9 @@ IJulia = "1.33.0"
 Interact = "0.10.5"
 WebIO = "0.8.21"
 Widgets = "0.6.7"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]

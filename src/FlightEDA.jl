@@ -1,6 +1,7 @@
 # This is the main module for the FlightEDA project.
 # It brings together all the different parts of the project
 # and makes them available for use.
+__precompile__(false)
 module FlightEDA
 
 # These are the external packages that we need to use.

@@ -224,7 +224,7 @@ end
 # --- MAIN PLOT GENERATION FUNCTION ---
 
 # This function orchestrates the entire plot generation process.
-function generate_plots(cfg::Config, df_in::DataFrame=nothing)
+function generate_plots(cfg::Config, df_in::Union{Nothing,DataFrame}=nothing)
     # Set the backend for the Plots.jl library.
     gr()
 

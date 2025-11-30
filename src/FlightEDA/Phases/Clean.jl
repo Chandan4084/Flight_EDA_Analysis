@@ -39,7 +39,11 @@ function clean_and_engineer_data(cfg::Config; df_raw::Union{Nothing,DataFrame}=n
     # Persist cancelled/diverted flights separately so plots can use them.
     out_path = cfg.data.cleaned_file
     cancellation_out_path = replace(out_path, r"\.csv$" => "_cancellations.csv")
-    df_cancel = filter(row -> coalesce(row.cancelled, 0) == 1 || coalesce(row.diverted, 0) == 1, df)
+    df_cancel = filter(row -> begin
+        cancelled_val = hasproperty(row, :cancelled) ? coalesce(row.cancelled, 0) : 0
+        diverted_val = hasproperty(row, :diverted) ? coalesce(row.diverted, 0) : 0
+        cancelled_val == 1 || diverted_val == 1
+    end, df)
     if !isempty(df_cancel)
         mkpath(dirname(cancellation_out_path))
         @info "Writing cancellations/diversions dataset" cancellation_out_path
@@ -48,13 +52,20 @@ function clean_and_engineer_data(cfg::Config; df_raw::Union{Nothing,DataFrame}=n
 
     # Drop cancelled/diverted flights and rows missing core timing fields for clean analysis
     rows_before = nrow(df)
-    df = filter(row -> coalesce(row.cancelled, 0) == 0 && coalesce(row.diverted, 0) == 0, df)
+    df = filter(row -> begin
+        cancelled_val = hasproperty(row, :cancelled) ? coalesce(row.cancelled, 0) : 0
+        diverted_val = hasproperty(row, :diverted) ? coalesce(row.diverted, 0) : 0
+        cancelled_val == 0 && diverted_val == 0
+    end, df)
     @info "Dropped cancelled/diverted flights" removed = rows_before - nrow(df)
 
     rows_before = nrow(df)
     required = [:dep_time, :arr_time, :dep_delay, :arr_delay, :distance]
-    df = dropmissing(df, required)
-    @info "Dropped rows missing core timing fields" removed = rows_before - nrow(df)
+    present_required = intersect(required, Symbol.(names(df)))
+    if !isempty(present_required)
+        df = dropmissing(df, present_required)
+        @info "Dropped rows missing core timing fields" removed = rows_before - nrow(df)
+    end
 
     enrich_features!(df)
 

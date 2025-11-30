@@ -71,23 +71,22 @@ end
     # Create a configuration object for testing, pointing to test-specific paths.
     cfg = FlightEDA.Config(
         FlightEDA.DataConfig(fixture, clean_path, fixture),
-        FlightEDA.PlotConfig(plot_dir, 1000, 1, -60.0, 180.0),
+        FlightEDA.PlotConfig(plot_dir, 1000, 1, 10, -60.0, 180.0),
         Logging.Info,
     )
     # Run the data cleaning and feature engineering function.
     df_clean = FlightEDA.clean_and_engineer_data(cfg)
-    # Test that the resulting DataFrame has 3 rows (cancelled row is kept).
-    @test nrow(df_clean) == 3
+    # Test that the resulting DataFrame has 2 rows (cancelled row is dropped).
+    @test nrow(df_clean) == 2
     # Test that all values in the 'carrier_delay' column are not missing.
-    @test all(!ismissing.(df_clean.carrier_delay))
+    @test all(.!ismissing.(df_clean.carrier_delay))
     # Test that all values in the 'cancellation_code' column are not 'missing'.
-    @test all(df_clean.cancellation_code .!= missing)
-    # Test that the 'hour_of_day' column was added.
-    @test :hour_of_day in names(df_clean)
-    # Test that the 'time_of_day' column was added.
-    @test :time_of_day in names(df_clean)
-    # Test that the 'is_delayed' column was added.
-    @test :is_delayed in names(df_clean)
+    @test all(.!ismissing.(df_clean.cancellation_code))
+    # Test that the feature columns were added (compare to Symbol names).
+    colsyms = Symbol.(names(df_clean))
+    @test :hour_of_day in colsyms
+    @test :time_of_day in colsyms
+    @test :is_delayed in colsyms
 end
 
 # Define a test set for "Plot generation".
@@ -100,13 +99,13 @@ end
     # Create a configuration object for testing, pointing to the temporary plot directory.
     cfg = FlightEDA.Config(
         FlightEDA.DataConfig(fixture, clean_path, fixture),
-        FlightEDA.PlotConfig(plot_dir, 1000, 1, -60.0, 180.0),
+        FlightEDA.PlotConfig(plot_dir, 1000, 1, 10, -60.0, 180.0),
         Logging.Info,
     )
     # Run the data cleaning and feature engineering function to prepare data for plotting.
-    FlightEDA.clean_and_engineer_data(cfg)
+    df_clean = FlightEDA.clean_and_engineer_data(cfg)
     # Run the plot generation function.
-    FlightEDA.generate_plots(cfg)
+    FlightEDA.generate_plots(cfg, df_clean)
     # Read the list of files in the plot directory.
     files = readdir(plot_dir)
     # Test that at least 10 plot files were generated.
